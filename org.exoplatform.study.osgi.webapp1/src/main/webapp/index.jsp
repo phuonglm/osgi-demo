@@ -3,6 +3,7 @@
 <%@page import="org.exoplatform.study.osgi.dupdicate.test.DupdicateClass"%>
 <%@page import="org.exoplatform.study.osgi.component.common.NormalClass"%>
 <%@page import="org.exoplatform.study.osgi.webapp1.internal.ExampleServiceTracker"%>
+<%@page import="org.exoplatform.study.osgi.webapp1.internal.HttpServletServiceTracker"%>
 <%@ page import="org.exoplatform.study.osgi.component.common.ExampleService" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -12,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/default.css" media="screen" />
 <%
   List<ExampleService> exampleServices = ExampleServiceTracker.exampleServices;
+  List<String> urls = HttpServletServiceTracker.urls;
 %>
 </HEAD>
 <BODY>
@@ -29,6 +31,18 @@ ClassLoader: <%=this.getClass().getClassLoader().toString() %> <br/>
   <tr>
     <td><%=exampleServices.get(i).sayHello()%></td>
     <td><%=exampleServices.get(i).getClass().getClassLoader().toString() %></td>
+  </tr>
+  <%}%>
+</table>
+
+<span style="text-align: center;">Servlet service infomation</span>
+<table class="info">
+  <tr>
+    <th>Servlet URL</th>
+  </tr>
+  <% for(int i=0; i < urls.size(); i++){ %>
+  <tr>
+    <td><a href="<%=urls.get(i)%>"><%=urls.get(i)%></a></td>
   </tr>
   <%}%>
 </table>

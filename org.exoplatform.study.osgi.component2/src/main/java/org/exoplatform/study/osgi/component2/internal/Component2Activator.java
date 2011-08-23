@@ -3,7 +3,10 @@ package org.exoplatform.study.osgi.component2.internal;
 import java.util.Dictionary;
 import java.util.Properties;
 
+import javax.servlet.http.HttpServlet;
+
 import org.exoplatform.study.osgi.component.common.ExampleService;
+import org.exoplatform.study.osgi.component2.internal.*;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -26,6 +29,11 @@ public final class Component2Activator
 
         // Register our example service implementation in the OSGi service registry
         context.registerService( ExampleService.class.getName(), new Component2ExampleServiceImpl(), props );
+        
+        Dictionary servletProps = new Properties();
+        servletProps.put("url", "/Component2HttpServlet");
+        
+        context.registerService( HttpServlet.class.getName(), new Component2HttpServletServiceFactory(), servletProps );
     }
 
     /**

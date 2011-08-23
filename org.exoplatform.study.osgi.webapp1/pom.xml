@@ -27,12 +27,14 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.osgi</groupId>
-			<artifactId>osgi_R4_core</artifactId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>4.3.0</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
-			<artifactId>osgi_R4_compendium</artifactId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>4.2.0</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
@@ -97,14 +99,14 @@
 						<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 						<Web-ContextPath>/webapp1</Web-ContextPath>
-            <Import-Package>
-              org.exoplatform.study.osgi.component.common;version="1.0.0.SNAPSHOT",
-              org.exoplatform.study.osgi.dupdicate.test;version="[1.0,2.0)",
-              org.exoplatform.study.osgi.webapp1;version="1.0.0.SNAPSHOT",
-              org.exoplatform.study.osgi.webapp1.internal;version="1.0.0.SNAPSHOT",
-              org.exoplatform.study.osgi.webapp1.internal;version="1.0.0.SNAPSHOT",
-              org.osgi.framework,org.osgi.util.tracker
-            </Import-Package>
+ 						<Import-Package>
+							javax.servlet;version="2.5",
+							javax.servlet.http;version="2.5",
+							org.exoplatform.study.osgi.component.common;version="1.0.0.SNAPSHOT",
+							org.exoplatform.study.osgi.webapp1.internal;version="1.0.0.SNAPSHOT",
+							org.exoplatform.study.osgi.dupdicate.test;version="[1.0,2.0)",
+							org.osgi.framework,org.osgi.service.http,org.osgi.util.tracker
+						</Import-Package>
 						<Bundle-Activator>${bundle.namespace}.internal.WebApp1Activator</Bundle-Activator>
 					</instructions>
 				</configuration>

@@ -32,16 +32,18 @@
       <optional>true</optional>
     </dependency>
     -->
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>osgi_R4_core</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>osgi_R4_compendium</artifactId>
-      <optional>true</optional>
-    </dependency>
+	<dependency>
+		<groupId>org.osgi</groupId>
+		<artifactId>org.osgi.core</artifactId>
+		<version>4.3.0</version>
+		<optional>true</optional>
+	</dependency>
+	<dependency>
+		<groupId>org.osgi</groupId>
+		<artifactId>org.osgi.compendium</artifactId>
+		<version>4.2.0</version>
+		<optional>true</optional>
+	</dependency>
   </dependencies>
   <build>
     <plugins>
